@@ -598,6 +598,9 @@ Contoh format:
     </div>
 
     <script>
+        // ⚙️ KONFIGURASI API - GANTI INI!
+        const API_URL = 'https://roblox-api-production-4830.up.railway.app/'; // GANTI dengan URL Railway Anda!
+        
         let gameData = {
             players: [],
             admins: {
@@ -606,6 +609,70 @@ Contoh format:
                 Admin: [8732264748]
             }
         };
+
+        // 📡 Auto Load dari API
+        async function autoLoadFromAPI() {
+            try {
+                showAlert('dashboardAlert', '🔄 Loading data from API...', 'info');
+                
+                const response = await fetch(API_URL + '/api/data', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                if (!response.ok) {
+                    throw new Error('API request failed');
+                }
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    gameData = result.data;
+                    saveData();
+                    updateStats();
+                    
+                    console.log('✅ Auto-loaded from API:', result.totalPlayers, 'players');
+                    
+                    // Update connection status
+                    document.getElementById('connectionStatus').className = 'connection-status status-connected';
+                    document.getElementById('connectionStatus').innerHTML = '<span>✅</span><span>Connected - ' + result.totalPlayers + ' players</span>';
+                    
+                    showAlert('dashboardAlert', '✅ Data loaded from API! Total: ' + result.totalPlayers + ' players', 'success');
+                } else {
+                    throw new Error('API returned error');
+                }
+            } catch (error) {
+                console.error('❌ API load failed:', error);
+                
+                // Update connection status
+                document.getElementById('connectionStatus').className = 'connection-status status-disconnected';
+                document.getElementById('connectionStatus').innerHTML = '<span>⚠️</span><span>API Offline - Using local data</span>';
+                
+                // Load from localStorage as fallback
+                loadData();
+            }
+        }
+
+        // 📤 Sync data TO API (dari website ke server)
+        async function syncToAPI(endpoint, data) {
+            try {
+                const response = await fetch(API_URL + endpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                return result;
+            } catch (error) {
+                console.error('❌ Sync to API failed:', error);
+                return { success: false, error: error.message };
+            }
+        }
 
         function loadData() {
             const saved = localStorage.getItem('robloxGameData');
