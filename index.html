@@ -11,6 +11,21 @@
             box-sizing: border-box;
         }
 
+        .robux-icon {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTEyIDJMMyA3djEwbDkgNSA5LTV2LTEweiBNMTIgMTguNjdsLTYtMy4zM1Y4LjY3TDEyIDV6Ii8+PC9zdmc+');
+            background-size: contain;
+            background-repeat: no-repeat;
+            vertical-align: middle;
+            margin-right: 3px;
+        }
+
+        .robux-icon.dark {
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iIzMzMzMzMyIgZD0iTTEyIDJMMyA3djEwbDkgNSA5LTV2LTEweiBNMTIgMTguNjdsLTYtMy4zM1Y4LjY3TDEyIDV6Ii8+PC9zdmc+');
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -18,9 +33,121 @@
             padding: 20px;
         }
 
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .login-box {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 450px;
+            width: 100%;
+            animation: fadeIn 0.5s;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-header h1 {
+            color: #667eea;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+
+        .login-header p {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .login-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .login-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 15px;
+            transition: border 0.3s;
+        }
+
+        .login-form input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .remember-me input[type="checkbox"] {
+            width: auto;
+        }
+
+        .admin-credentials {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 0.85em;
+        }
+
+        .admin-credentials h4 {
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+
+        .admin-credentials p {
+            margin: 5px 0;
+            color: #666;
+        }
+
         .container {
             max-width: 1400px;
             margin: 0 auto;
+            display: none;
+        }
+
+        .container.show {
+            display: block;
+            animation: fadeIn 0.3s;
         }
 
         .header {
@@ -43,6 +170,36 @@
             color: #667eea;
             font-size: 2em;
             margin-bottom: 5px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+
+        .logout-btn {
+            padding: 10px 20px;
+            background: #f5576c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .logout-btn:hover {
+            background: #dc3545;
+            transform: translateY(-2px);
         }
 
         .connection-status {
@@ -68,6 +225,7 @@
             display: flex;
             gap: 10px;
             margin-top: 15px;
+            flex-wrap: wrap;
         }
 
         .tabs {
@@ -79,12 +237,12 @@
 
         .tab-btn {
             flex: 1;
-            min-width: 150px;
-            padding: 15px 25px;
+            min-width: 120px;
+            padding: 15px 20px;
             background: white;
             border: none;
             border-radius: 10px;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
@@ -307,6 +465,37 @@
             font-size: 0.95em;
         }
 
+        .server-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .server-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .server-status {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+
+        .server-status.online {
+            background: #28a745;
+            box-shadow: 0 0 10px #28a745;
+        }
+
+        .server-status.offline {
+            background: #dc3545;
+        }
+
         .code-block {
             background: #2d2d2d;
             color: #f8f8f2;
@@ -331,7 +520,7 @@
             margin-bottom: 10px;
         }
 
-        .instruction-box ol {
+        .instruction-box ol, .instruction-box ul {
             margin-left: 20px;
         }
 
@@ -348,267 +537,109 @@
             .stats-grid {
                 grid-template-columns: 1fr;
             }
+
+            .tab-btn {
+                min-width: 100px;
+                padding: 12px 15px;
+                font-size: 13px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="header-content">
-                <div>
-                    <h1>🎮 Admin Control Panel</h1>
-                    <p>Kelola Database Roblox Game Anda</p>
-                </div>
-                <div>
-                    <div class="connection-status status-disconnected" id="connectionStatus">
-                        <span>⚠️</span>
-                        <span>Mode Offline</span>
-                    </div>
-                </div>
+    <!-- Login Screen -->
+    <div class="login-container" id="loginScreen">
+        <div class="login-box">
+            <div class="login-header">
+                <h1>🎮 Admin Panel</h1>
+                <p>Login untuk mengakses Control Panel</p>
             </div>
-            <div class="sync-controls">
-                <button class="btn btn-primary" onclick="syncFromRoblox()">🔄 Sync dari Roblox</button>
-                <button class="btn btn-success" onclick="exportData()">📥 Export Data</button>
-                <button class="btn btn-warning" onclick="importData()">📤 Import Data</button>
-            </div>
-        </div>
-
-        <div class="tabs">
-            <button class="tab-btn active" onclick="showTab('setup')">📖 Setup</button>
-            <button class="tab-btn" onclick="showTab('dashboard')">📊 Dashboard</button>
-            <button class="tab-btn" onclick="showTab('players')">👥 Players</button>
-            <button class="tab-btn" onclick="showTab('admins')">⚡ Admins</button>
-            <button class="tab-btn" onclick="showTab('vip')">💎 VIP</button>
-            <button class="tab-btn" onclick="showTab('summit')">⛰️ Summit</button>
-        </div>
-
-        <div id="setup" class="tab-content active">
-            <h2 style="margin-bottom: 20px;">📖 Cara Setup & Connect ke Roblox</h2>
-            
-            <div class="instruction-box">
-                <h3>🚀 Step 1: Copy Script ke Roblox Studio</h3>
-                <ol>
-                    <li>Buka <strong>Roblox Studio</strong></li>
-                    <li>Buka game Anda</li>
-                    <li>Masuk ke <strong>ServerScriptService</strong></li>
-                    <li>Buat <strong>Script</strong> baru, beri nama: <code>APIConnector</code></li>
-                    <li>Copy code di bawah ini ke script tersebut:</li>
-                </ol>
-            </div>
-
-            <div class="code-block">-- Paste script APIConnector yang saya buat di atas
--- Atau klik tombol "Copy API Script" di bawah</div>
-
-            <button class="btn btn-primary" onclick="copyAPIScript()">📋 Copy API Connector Script</button>
-
-            <div class="instruction-box" style="margin-top: 30px;">
-                <h3>🔗 Step 2: Import Data dari Roblox</h3>
-                <ol>
-                    <li>Jalankan game Anda di Roblox Studio</li>
-                    <li>Join game sebagai admin</li>
-                    <li>Ketik command di chat: <code>:exportdata</code></li>
-                    <li>Tekan <strong>F9</strong> untuk buka Console</li>
-                    <li>Copy semua data JSON yang muncul</li>
-                    <li>Paste di textarea di bawah ini:</li>
-                </ol>
-            </div>
-
-            <div class="form-group">
-                <label>📥 Import Data dari Roblox:</label>
-                <textarea id="importDataArea" placeholder='Paste data JSON dari Roblox Console di sini...
-
-Contoh format:
-[
-  {
-    "userId": 9158231035,
-    "username": "Player1",
-    "totalSubmit": 15,
-    "lastCheckpoint": "Checkpoint 5",
-    "isVIP": false
-  }
-]'></textarea>
-            </div>
-            <button class="btn btn-success" onclick="processImportData()">✅ Import Data</button>
-
-            <div class="instruction-box" style="margin-top: 30px;">
-                <h3>⚙️ Step 3: Setup Admin List</h3>
-                <p>Edit konfigurasi admin di script Roblox Anda sesuai User ID yang ada di tab "Admins"</p>
-            </div>
-
-            <div class="instruction-box">
-                <h3>💡 Tips:</h3>
-                <ul>
-                    <li>Website ini menggunakan <strong>localStorage</strong> browser untuk simpan data</li>
-                    <li>Data tidak akan hilang selama Anda tidak clear browser data</li>
-                    <li>Untuk sync otomatis, butuh setup API server (tutorial advance)</li>
-                    <li>Gunakan command <code>:exportdata</code> untuk export data dari game</li>
-                    <li>Gunakan command <code>:syncnow</code> untuk manual sync</li>
-                </ul>
-            </div>
-        </div>
-
-        <div id="dashboard" class="tab-content">
-            <h2 style="margin-bottom: 20px;">📊 Statistik Game</h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <h3 id="totalPlayers">0</h3>
-                    <p>Total Players</p>
-                </div>
-                <div class="stat-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                    <h3 id="totalVips">0</h3>
-                    <p>Total VIP Members</p>
-                </div>
-                <div class="stat-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                    <h3 id="totalAdmins">0</h3>
-                    <p>Total Admins</p>
-                </div>
-                <div class="stat-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
-                    <h3 id="totalSummits">0</h3>
-                    <p>Total Summit Submissions</p>
-                </div>
-            </div>
-
-            <div id="dashboardAlert"></div>
-
-            <h3 style="margin-top: 30px; margin-bottom: 15px;">📈 Leaderboard - Top Summit</h3>
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Rank</th>
-                        <th>Username</th>
-                        <th>Summit Count</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody id="leaderboardBody">
-                </tbody>
-            </table>
-        </div>
-
-        <div id="players" class="tab-content">
-            <h2 style="margin-bottom: 20px;">👥 Kelola Players</h2>
-            <div id="playersAlert"></div>
-            
-            <div class="search-box">
-                <input type="text" id="searchPlayer" placeholder="🔍 Cari player by nama atau User ID..." onkeyup="searchPlayers()">
-            </div>
-
-            <table class="data-table" id="playersTable">
-                <thead>
-                    <tr>
-                        <th>User ID</th>
-                        <th>Username</th>
-                        <th>Total Summit</th>
-                        <th>Last Checkpoint</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody id="playersTableBody">
-                </tbody>
-            </table>
-        </div>
-
-        <div id="admins" class="tab-content">
-            <h2 style="margin-bottom: 20px;">⚡ Kelola Admins</h2>
-            <div id="adminsAlert"></div>
-            
-            <div class="form-group">
-                <label>Tambah Admin Baru</label>
-                <input type="number" id="newAdminId" placeholder="User ID (contoh: 123456789)">
-            </div>
-            <div class="form-group">
-                <label>Role Admin</label>
-                <select id="newAdminRole">
-                    <option value="Developer">👑 Developer</option>
-                    <option value="Streamer">📺 Streamer</option>
-                    <option value="Admin">⚡ Admin</option>
-                </select>
-            </div>
-            <button class="btn btn-primary" onclick="addAdmin()">➕ Tambah Admin</button>
-            <button class="btn btn-success" onclick="exportAdminConfig()">📋 Copy Admin Config</button>
-
-            <table class="data-table" style="margin-top: 30px;">
-                <thead>
-                    <tr>
-                        <th>User ID</th>
-                        <th>Role</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody id="adminsTableBody">
-                </tbody>
-            </table>
-
-            <div class="instruction-box" style="margin-top: 30px;">
-                <h3>📝 Cara Update Admin di Roblox:</h3>
-                <ol>
-                    <li>Klik tombol <strong>"Copy Admin Config"</strong> di atas</li>
-                    <li>Buka script utama Anda di Roblox Studio</li>
-                    <li>Cari bagian <code>local Ranks = { ... }</code></li>
-                    <li>Replace dengan config yang sudah di-copy</li>
-                    <li>Save dan publish game</li>
-                </ol>
-            </div>
-        </div>
-
-        <div id="vip" class="tab-content">
-            <h2 style="margin-bottom: 20px;">💎 Kelola VIP</h2>
-            <div id="vipAlert"></div>
-            
-            <div class="search-box">
-                <input type="text" id="searchVip" placeholder="🔍 Cari player untuk set VIP..." onkeyup="searchVipPlayers()">
-            </div>
-
-            <table class="data-table" id="vipTable">
-                <thead>
-                    <tr>
-                        <th>User ID</th>
-                        <th>Username</th>
-                        <th>Status VIP</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody id="vipTableBody">
-                </tbody>
-            </table>
-        </div>
-
-        <div id="summit" class="tab-content">
-            <h2 style="margin-bottom: 20px;">⛰️ Edit Summit</h2>
-            <div id="summitAlert"></div>
-            
-            <div class="search-box">
-                <input type="text" id="searchSummit" placeholder="🔍 Cari player untuk edit summit..." onkeyup="searchSummitPlayers()">
-            </div>
-
-            <table class="data-table" id="summitTable">
-                <thead>
-                    <tr>
-                        <th>User ID</th>
-                        <th>Username</th>
-                        <th>Total Summit</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody id="summitTableBody">
-                </tbody>
-            </table>
-        </div>
-    </div>
 
     <script>
-        // ⚙️ KONFIGURASI API - GANTI INI!
-        const API_URL = 'https://roblox-api-production-4830.up.railway.app/'; // GANTI dengan URL Railway Anda!
+        // ⚙️ KONFIGURASI API
+        const API_URL = 'https://roblox-api-production-4830.up.railway.app';
         
+        // 🔐 Login System
+        const ADMIN_ACCOUNTS = {
+            'admin': 'admin123',
+            'developer': 'dev123',
+            'owner': 'owner123'
+        };
+
+        let currentUser = null;
         let gameData = {
             players: [],
             admins: {
                 Developer: [9158231035],
                 Streamer: [9040738519],
                 Admin: [8732264748]
-            }
+            },
+            servers: []
         };
+
+        // 🔐 Check Login Status on Load
+        function checkLoginStatus() {
+            const savedUser = sessionStorage.getItem('currentUser');
+            const rememberMe = localStorage.getItem('rememberMe');
+            
+            if (savedUser) {
+                currentUser = savedUser;
+                showDashboard();
+            } else if (rememberMe) {
+                currentUser = rememberMe;
+                sessionStorage.setItem('currentUser', currentUser);
+                showDashboard();
+            } else {
+                showLogin();
+            }
+        }
+
+        function showLogin() {
+            document.getElementById('loginScreen').style.display = 'flex';
+            document.getElementById('mainDashboard').classList.remove('show');
+        }
+
+        function showDashboard() {
+            document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('mainDashboard').classList.add('show');
+            document.getElementById('userBadge').textContent = '👤 ' + currentUser.toUpperCase();
+            autoLoadFromAPI();
+            startRealtimeSync();
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            const rememberMe = document.getElementById('rememberMe').checked;
+            
+            if (ADMIN_ACCOUNTS[username] && ADMIN_ACCOUNTS[username] === password) {
+                currentUser = username;
+                sessionStorage.setItem('currentUser', username);
+                
+                if (rememberMe) {
+                    localStorage.setItem('rememberMe', username);
+                }
+                
+                showAlert('loginAlert', '✅ Login berhasil! Redirecting...', 'success');
+                setTimeout(() => {
+                    showDashboard();
+                }, 1000);
+            } else {
+                showAlert('loginAlert', '❌ Username atau password salah!', 'error');
+            }
+        }
+
+        function handleLogout() {
+            if (confirm('Yakin ingin logout?')) {
+                sessionStorage.removeItem('currentUser');
+                localStorage.removeItem('rememberMe');
+                currentUser = null;
+                stopRealtimeSync();
+                showLogin();
+            }
+        }
 
         // 📡 Auto Load dari API
         async function autoLoadFromAPI() {
@@ -630,12 +661,12 @@ Contoh format:
                 
                 if (result.success) {
                     gameData = result.data;
-                    saveData();
+                    if (!gameData.servers) gameData.servers = [];
                     updateStats();
+                    updateServersList();
                     
                     console.log('✅ Auto-loaded from API:', result.totalPlayers, 'players');
                     
-                    // Update connection status
                     document.getElementById('connectionStatus').className = 'connection-status status-connected';
                     document.getElementById('connectionStatus').innerHTML = '<span>✅</span><span>Connected - ' + result.totalPlayers + ' players</span>';
                     
@@ -646,16 +677,38 @@ Contoh format:
             } catch (error) {
                 console.error('❌ API load failed:', error);
                 
-                // Update connection status
                 document.getElementById('connectionStatus').className = 'connection-status status-disconnected';
                 document.getElementById('connectionStatus').innerHTML = '<span>⚠️</span><span>API Offline - Using local data</span>';
                 
-                // Load from localStorage as fallback
-                loadData();
+                gameData = {
+                    players: [],
+                    admins: {
+                        Developer: [9158231035],
+                        Streamer: [9040738519],
+                        Admin: [8732264748]
+                    },
+                    servers: []
+                };
+                updateStats();
             }
         }
 
-        // 📤 Sync data TO API (dari website ke server)
+        // 🔄 Realtime Sync
+        let syncInterval = null;
+        function startRealtimeSync() {
+            syncInterval = setInterval(() => {
+                autoLoadFromAPI();
+            }, 10000); // Sync every 10 seconds
+        }
+
+        function stopRealtimeSync() {
+            if (syncInterval) {
+                clearInterval(syncInterval);
+                syncInterval = null;
+            }
+        }
+
+        // 📤 Sync data TO API
         async function syncToAPI(endpoint, data) {
             try {
                 const response = await fetch(API_URL + endpoint, {
@@ -674,22 +727,16 @@ Contoh format:
             }
         }
 
-        function loadData() {
-            const saved = localStorage.getItem('robloxGameData');
-            if (saved) {
-                gameData = JSON.parse(saved);
+        function showAlert(containerId, message, type) {
+            const container = document.getElementById(containerId);
+            if (container) {
+                container.innerHTML = `<div class="alert alert-${type}">${message}</div>`;
+                setTimeout(() => container.innerHTML = '', 4000);
             }
         }
 
-        function saveData() {
-            localStorage.setItem('robloxGameData', JSON.stringify(gameData));
-            updateStats();
-        }
-
-        function showAlert(containerId, message, type) {
-            const container = document.getElementById(containerId);
-            container.innerHTML = `<div class="alert alert-${type}">${message}</div>`;
-            setTimeout(() => container.innerHTML = '', 4000);
+        function formatCurrency(amount) {
+            return '<span class="robux-icon dark"></span>' + amount.toLocaleString('id-ID');
         }
 
         function updateStats() {
@@ -699,8 +746,11 @@ Contoh format:
             const adminCount = Object.values(gameData.admins).flat().length;
             document.getElementById('totalAdmins').textContent = adminCount;
             
-            const totalSummits = gameData.players.reduce((sum, p) => sum + p.totalSubmit, 0);
+            const totalSummits = gameData.players.reduce((sum, p) => sum + (p.totalSubmit || 0), 0);
             document.getElementById('totalSummits').textContent = totalSummits;
+            
+            const totalDonations = gameData.players.reduce((sum, p) => sum + (p.totalDonation || 0), 0);
+            document.getElementById('totalDonations').innerHTML = '<span class="robux-icon" style="width: 32px; height: 32px; margin-right: 8px;"></span>' + totalDonations.toLocaleString('id-ID');
 
             updateLeaderboard();
         }
@@ -713,9 +763,39 @@ Contoh format:
                 <tr>
                     <td><strong>${index + 1}</strong></td>
                     <td>${player.username}</td>
-                    <td><strong>${player.totalSubmit}</strong></td>
+                    <td><strong>${player.totalSubmit || 0}</strong></td>
+                    <td>${formatCurrency(player.totalDonation || 0)}</td>
                     <td>${player.isVIP ? '<span class="badge badge-vip">VIP</span>' : '<span class="badge">Member</span>'}</td>
                 </tr>
+            `).join('');
+        }
+
+        function updateServersList() {
+            const serversList = document.getElementById('serversList');
+            const servers = gameData.servers || [];
+            
+            document.getElementById('totalServers').textContent = servers.length;
+            
+            const totalOnline = servers.reduce((sum, s) => sum + (s.players || 0), 0);
+            document.getElementById('totalOnlinePlayers').textContent = totalOnline;
+            
+            if (servers.length === 0) {
+                serversList.innerHTML = '<p style="color: #666; padding: 20px; text-align: center;">Tidak ada server aktif atau belum terkoneksi ke API</p>';
+                return;
+            }
+            
+            serversList.innerHTML = servers.map(server => `
+                <div class="server-card">
+                    <h3>
+                        <span class="server-status ${server.status || 'online'}"></span>
+                        Server ${server.id || 'Unknown'}
+                    </h3>
+                    <p><strong>👥 Players:</strong> ${server.players || 0}/${server.maxPlayers || 50}</p>
+                    <p><strong>🌍 Region:</strong> ${server.region || 'Unknown'}</p>
+                    <p><strong>📍 Job ID:</strong> ${server.jobId || 'N/A'}</p>
+                    <p><strong>🕐 Uptime:</strong> ${server.uptime || '0m'}</p>
+                    <p><strong>📊 Last Update:</strong> ${new Date(server.lastUpdate || Date.now()).toLocaleString('id-ID')}</p>
+                </div>
             `).join('');
         }
 
@@ -730,7 +810,10 @@ Contoh format:
             if (tabName === 'admins') renderAdminsTable();
             if (tabName === 'vip') renderVipTable();
             if (tabName === 'summit') renderSummitTable();
+            if (tabName === 'donation') renderDonationTable();
+            if (tabName === 'database') renderDatabaseTable();
             if (tabName === 'dashboard') updateLeaderboard();
+            if (tabName === 'servers') updateServersList();
         }
 
         function renderPlayersTable() {
@@ -739,7 +822,8 @@ Contoh format:
                 <tr>
                     <td>${player.userId}</td>
                     <td>${player.username}</td>
-                    <td><strong>${player.totalSubmit}</strong></td>
+                    <td><strong>${player.totalSubmit || 0}</strong></td>
+                    <td>R$ ${(player.totalDonation || 0).toLocaleString('id-ID')}</td>
                     <td>${player.lastCheckpoint || '-'}</td>
                     <td>${player.isVIP ? '<span class="badge badge-vip">VIP</span>' : '<span class="badge">Member</span>'}</td>
                     <td>
@@ -761,7 +845,8 @@ Contoh format:
                 <tr>
                     <td>${player.userId}</td>
                     <td>${player.username}</td>
-                    <td><strong>${player.totalSubmit}</strong></td>
+                    <td><strong>${player.totalSubmit || 0}</strong></td>
+                    <td>R$ ${(player.totalDonation || 0).toLocaleString('id-ID')}</td>
                     <td>${player.lastCheckpoint || '-'}</td>
                     <td>${player.isVIP ? '<span class="badge badge-vip">VIP</span>' : '<span class="badge">Member</span>'}</td>
                     <td>
@@ -771,11 +856,12 @@ Contoh format:
             `).join('');
         }
 
-        function deletePlayer(userId) {
+        async function deletePlayer(userId) {
             if (confirm('Yakin ingin menghapus player ini?')) {
                 gameData.players = gameData.players.filter(p => p.userId !== userId);
-                saveData();
+                await syncToAPI('/api/sync', { players: gameData.players });
                 renderPlayersTable();
+                updateStats();
                 showAlert('playersAlert', '✅ Player berhasil dihapus!', 'success');
             }
         }
@@ -801,7 +887,7 @@ Contoh format:
             `).join('');
         }
 
-        function addAdmin() {
+        async function addAdmin() {
             const userId = parseInt(document.getElementById('newAdminId').value);
             const role = document.getElementById('newAdminRole').value;
             
@@ -816,17 +902,19 @@ Contoh format:
             }
             
             gameData.admins[role].push(userId);
-            saveData();
+            await syncToAPI('/api/sync', { admins: gameData.admins });
             renderAdminsTable();
+            updateStats();
             document.getElementById('newAdminId').value = '';
             showAlert('adminsAlert', '✅ Admin berhasil ditambahkan!', 'success');
         }
 
-        function removeAdmin(userId, role) {
+        async function removeAdmin(userId, role) {
             if (confirm('Yakin ingin menghapus admin ini?')) {
                 gameData.admins[role] = gameData.admins[role].filter(id => id !== userId);
-                saveData();
+                await syncToAPI('/api/sync', { admins: gameData.admins });
                 renderAdminsTable();
+                updateStats();
                 showAlert('adminsAlert', '✅ Admin berhasil dihapus!', 'success');
             }
         }
@@ -915,12 +1003,13 @@ Contoh format:
             `).join('');
         }
 
-        function toggleVIP(userId) {
+        async function toggleVIP(userId) {
             const player = gameData.players.find(p => p.userId === userId);
             if (player) {
                 player.isVIP = !player.isVIP;
-                saveData();
+                await syncToAPI('/api/player/vip', { userId, isVIP: player.isVIP });
                 renderVipTable();
+                updateStats();
                 showAlert('vipAlert', `✅ Status VIP ${player.username} berhasil diubah!`, 'success');
             }
         }
@@ -931,7 +1020,7 @@ Contoh format:
                 <tr>
                     <td>${player.userId}</td>
                     <td>${player.username}</td>
-                    <td><strong>${player.totalSubmit}</strong></td>
+                    <td><strong>${player.totalSubmit || 0}</strong></td>
                     <td>
                         <button class="btn btn-success" onclick="editSummit(${player.userId})">✏️ Edit</button>
                         <button class="btn btn-primary" onclick="addSummit(${player.userId}, 1)">+1</button>
@@ -953,7 +1042,7 @@ Contoh format:
                 <tr>
                     <td>${player.userId}</td>
                     <td>${player.username}</td>
-                    <td><strong>${player.totalSubmit}</strong></td>
+                    <td><strong>${player.totalSubmit || 0}</strong></td>
                     <td>
                         <button class="btn btn-success" onclick="editSummit(${player.userId})">✏️ Edit</button>
                         <button class="btn btn-primary" onclick="addSummit(${player.userId}, 1)">+1</button>
@@ -963,16 +1052,17 @@ Contoh format:
             `).join('');
         }
 
-        function editSummit(userId) {
+        async function editSummit(userId) {
             const player = gameData.players.find(p => p.userId === userId);
             if (player) {
-                const newValue = prompt(`Edit Total Summit untuk ${player.username}:`, player.totalSubmit);
+                const newValue = prompt(`Edit Total Summit untuk ${player.username}:`, player.totalSubmit || 0);
                 if (newValue !== null) {
                     const value = parseInt(newValue);
                     if (!isNaN(value) && value >= 0) {
                         player.totalSubmit = value;
-                        saveData();
+                        await syncToAPI('/api/player/summit', { userId, totalSubmit: value });
                         renderSummitTable();
+                        updateStats();
                         showAlert('summitAlert', `✅ Summit ${player.username} berhasil diubah menjadi ${value}!`, 'success');
                     } else {
                         showAlert('summitAlert', '⚠️ Masukkan angka yang valid!', 'error');
@@ -981,14 +1071,156 @@ Contoh format:
             }
         }
 
-        function addSummit(userId, amount) {
+        async function addSummit(userId, amount) {
             const player = gameData.players.find(p => p.userId === userId);
             if (player) {
-                player.totalSubmit = Math.max(0, player.totalSubmit + amount);
-                saveData();
+                player.totalSubmit = Math.max(0, (player.totalSubmit || 0) + amount);
+                await syncToAPI('/api/player/summit', { userId, totalSubmit: player.totalSubmit });
                 renderSummitTable();
+                updateStats();
                 showAlert('summitAlert', `✅ Summit ${player.username} ${amount > 0 ? 'ditambah' : 'dikurangi'}!`, 'success');
             }
+        }
+
+        // 💰 Donation Functions
+        function renderDonationTable() {
+            const tbody = document.getElementById('donationTableBody');
+            tbody.innerHTML = gameData.players.map(player => `
+                <tr>
+                    <td>${player.userId}</td>
+                    <td>${player.username}</td>
+                    <td><strong>${formatCurrency(player.totalDonation || 0)}</strong></td>
+                    <td>
+                        <button class="btn btn-success" onclick="editDonation(${player.userId})">✏️ Edit</button>
+                        <button class="btn btn-primary" onclick="addDonation(${player.userId}, 10)">+10 <span class="robux-icon"></span></button>
+                        <button class="btn btn-primary" onclick="addDonation(${player.userId}, 50)">+50 <span class="robux-icon"></span></button>
+                        <button class="btn btn-primary" onclick="addDonation(${player.userId}, 100)">+100 <span class="robux-icon"></span></button>
+                        <button class="btn btn-warning" onclick="addDonation(${player.userId}, -10)">-10 <span class="robux-icon"></span></button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function searchDonationPlayers() {
+            const search = document.getElementById('searchDonation').value.toLowerCase();
+            const filtered = gameData.players.filter(p => 
+                p.username.toLowerCase().includes(search) || 
+                p.userId.toString().includes(search)
+            );
+            
+            const tbody = document.getElementById('donationTableBody');
+            tbody.innerHTML = filtered.map(player => `
+                <tr>
+                    <td>${player.userId}</td>
+                    <td>${player.username}</td>
+                    <td><strong>${formatCurrency(player.totalDonation || 0)}</strong></td>
+                    <td>
+                        <button class="btn btn-success" onclick="editDonation(${player.userId})">✏️ Edit</button>
+                        <button class="btn btn-primary" onclick="addDonation(${player.userId}, 10)">+10 <span class="robux-icon"></span></button>
+                        <button class="btn btn-primary" onclick="addDonation(${player.userId}, 50)">+50 <span class="robux-icon"></span></button>
+                        <button class="btn btn-primary" onclick="addDonation(${player.userId}, 100)">+100 <span class="robux-icon"></span></button>
+                        <button class="btn btn-warning" onclick="addDonation(${player.userId}, -10)">-10 <span class="robux-icon"></span></button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        async function editDonation(userId) {
+            const player = gameData.players.find(p => p.userId === userId);
+            if (player) {
+                const newValue = prompt(`Edit Total Donasi untuk ${player.username} (Robux):`, player.totalDonation || 0);
+                if (newValue !== null) {
+                    const value = parseInt(newValue);
+                    if (!isNaN(value) && value >= 0) {
+                        player.totalDonation = value;
+                        await syncToAPI('/api/player/donation', { userId, totalDonation: value });
+                        renderDonationTable();
+                        updateStats();
+                        const robuxIcon = '<span class="robux-icon dark"></span>';
+                        showAlert('donationAlert', `✅ Donasi ${player.username} berhasil diubah menjadi ${robuxIcon}${value.toLocaleString('id-ID')}!`, 'success');
+                    } else {
+                        showAlert('donationAlert', '⚠️ Masukkan angka yang valid!', 'error');
+                    }
+                }
+            }
+        }
+
+        async function addDonation(userId, amount) {
+            const player = gameData.players.find(p => p.userId === userId);
+            if (player) {
+                player.totalDonation = Math.max(0, (player.totalDonation || 0) + amount);
+                await syncToAPI('/api/player/donation', { userId, totalDonation: player.totalDonation });
+                renderDonationTable();
+                updateStats();
+                const robuxIcon = '<span class="robux-icon dark"></span>';
+                showAlert('donationAlert', `✅ Donasi ${player.username} ${amount > 0 ? 'ditambah' : 'dikurangi'} ${robuxIcon}${Math.abs(amount).toLocaleString('id-ID')}!`, 'success');
+            }
+        }
+
+        // 🗄️ Database Editor Functions
+        function renderDatabaseTable() {
+            const tbody = document.getElementById('databaseTableBody');
+            tbody.innerHTML = gameData.players.map(player => `
+                <tr>
+                    <td>${player.userId}</td>
+                    <td>${player.username}</td>
+                    <td>${player.totalSubmit || 0}</td>
+                    <td>${formatCurrency(player.totalDonation || 0)}</td>
+                    <td>${player.isVIP ? '✅' : '❌'}</td>
+                    <td>${player.lastCheckpoint || '-'}</td>
+                    <td>
+                        <button class="btn btn-success" onclick="editPlayerData(${player.userId})">✏️ Edit All</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function searchDatabase() {
+            const search = document.getElementById('searchDatabase').value.toLowerCase();
+            const filtered = gameData.players.filter(p => 
+                p.username.toLowerCase().includes(search) || 
+                p.userId.toString().includes(search)
+            );
+            
+            const tbody = document.getElementById('databaseTableBody');
+            tbody.innerHTML = filtered.map(player => `
+                <tr>
+                    <td>${player.userId}</td>
+                    <td>${player.username}</td>
+                    <td>${player.totalSubmit || 0}</td>
+                    <td>${formatCurrency(player.totalDonation || 0)}</td>
+                    <td>${player.isVIP ? '✅' : '❌'}</td>
+                    <td>${player.lastCheckpoint || '-'}</td>
+                    <td>
+                        <button class="btn btn-success" onclick="editPlayerData(${player.userId})">✏️ Edit All</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        async function editPlayerData(userId) {
+            const player = gameData.players.find(p => p.userId === userId);
+            if (!player) return;
+            
+            const summit = prompt(`Total Summit (saat ini: ${player.totalSubmit || 0}):`, player.totalSubmit || 0);
+            if (summit === null) return;
+            
+            const donation = prompt(`Total Donasi dalam Robux (saat ini: ${player.totalDonation || 0} Robux):`, player.totalDonation || 0);
+            if (donation === null) return;
+            
+            const vip = confirm(`Set VIP? (saat ini: ${player.isVIP ? 'VIP' : 'Non-VIP'})\n\nKlik OK untuk VIP, Cancel untuk Non-VIP`);
+            
+            const checkpoint = prompt(`Last Checkpoint (saat ini: ${player.lastCheckpoint || '-'}):`, player.lastCheckpoint || '');
+            
+            player.totalSubmit = parseInt(summit) || 0;
+            player.totalDonation = parseInt(donation) || 0;
+            player.isVIP = vip;
+            player.lastCheckpoint = checkpoint || '';
+            
+            await syncToAPI('/api/sync', { players: gameData.players });
+            renderDatabaseTable();
+            updateStats();
+            showAlert('databaseAlert', `✅ Data ${player.username} berhasil diupdate!`, 'success');
         }
 
         function syncFromRoblox() {
@@ -1017,7 +1249,7 @@ Contoh format:
                     try {
                         const imported = JSON.parse(event.target.result);
                         gameData = imported;
-                        saveData();
+                        syncToAPI('/api/sync', gameData);
                         showAlert('dashboardAlert', '✅ Data berhasil di-import!', 'success');
                         updateStats();
                     } catch (err) {
@@ -1047,19 +1279,28 @@ Contoh format:
                     gameData.players = imported.players;
                 }
                 
-                saveData();
+                // Initialize missing fields
+                gameData.players = gameData.players.map(p => ({
+                    ...p,
+                    totalDonation: p.totalDonation || 0,
+                    totalSubmit: p.totalSubmit || 0,
+                    isVIP: p.isVIP || false,
+                    lastCheckpoint: p.lastCheckpoint || ''
+                }));
+                
+                syncToAPI('/api/sync', { players: gameData.players });
                 textarea.value = '';
                 showAlert('dashboardAlert', `✅ Berhasil import ${gameData.players.length} players!`, 'success');
                 updateStats();
                 
-                showTab('dashboard');
+                setTimeout(() => showTab('dashboard'), 1500);
             } catch (err) {
                 showAlert('dashboardAlert', '❌ Format JSON salah! Error: ' + err.message, 'error');
             }
         }
 
         function copyAPIScript() {
-            const script = `-- API Connector Script
+            const script = `-- API Connector Script dengan AUTO SYNC
 -- Letakkan di ServerScriptService
 
 local HttpService = game:GetService("HttpService")
@@ -1067,6 +1308,15 @@ local Players = game:GetService("Players")
 local DataStoreService = game:GetService("DataStoreService")
 local submitDataStore = DataStoreService:GetDataStore("PlayerSubmitData")
 
+-- ⚙️ KONFIGURASI API
+local API_CONFIG = {
+    API_URL = "${API_URL}",
+    ENABLED = true,
+    SYNC_INTERVAL = 60,
+    ADMIN_IDS = {${Object.values(gameData.admins).flat().join(', ')}}
+}
+
+-- ✅ Fungsi untuk export data player
 local function exportPlayerData()
     local allPlayers = {}
     
@@ -1074,6 +1324,7 @@ local function exportPlayerData()
         local leaderstats = player:FindFirstChild("leaderstats")
         if leaderstats then
             local submitValue = leaderstats:FindFirstChild("TotalSubmit")
+            local donationValue = leaderstats:FindFirstChild("TotalDonation")
             local vipStatus = leaderstats:FindFirstChild("IsVIP")
             local lastCP = player:FindFirstChild("LastCheckpoint")
             
@@ -1081,6 +1332,7 @@ local function exportPlayerData()
                 userId = player.UserId,
                 username = player.Name,
                 totalSubmit = submitValue and submitValue.Value or 0,
+                totalDonation = donationValue and donationValue.Value or 0,
                 lastCheckpoint = lastCP and lastCP.Value or "",
                 isVIP = vipStatus and vipStatus.Value or false,
                 timestamp = os.time()
@@ -1091,49 +1343,525 @@ local function exportPlayerData()
     return allPlayers
 end
 
+-- 📤 Fungsi untuk sync data ke API
+local function syncDataToAPI()
+    if not API_CONFIG.ENABLED then 
+        return 
+    end
+    
+    local success, result = pcall(function()
+        local playerData = exportPlayerData()
+        
+        if #playerData == 0 then
+            return
+        end
+        
+        local jsonData = HttpService:JSONEncode({
+            players = playerData,
+            servers = {
+                {
+                    id = game.JobId,
+                    jobId = game.JobId,
+                    players = #Players:GetPlayers(),
+                    maxPlayers = Players.MaxPlayers,
+                    region = "Unknown",
+                    uptime = math.floor(time() / 60) .. "m",
+                    lastUpdate = os.time(),
+                    status = "online"
+                }
+            },
+            timestamp = os.time(),
+            gameId = game.PlaceId
+        })
+        
+        print("🔄 Syncing " .. #playerData .. " players to API...")
+        
+        local response = HttpService:PostAsync(
+            API_CONFIG.API_URL .. "/api/sync",
+            jsonData,
+            Enum.HttpContentType.ApplicationJson,
+            false
+        )
+        
+        local responseData = HttpService:JSONDecode(response)
+        
+        if responseData.success then
+            print("✅ Sync successful! Players: " .. responseData.playersUpdated)
+            return true
+        else
+            warn("❌ Sync failed")
+            return false
+        end
+    end)
+    
+    if not success then
+        warn("❌ Sync error: " .. tostring(result))
+    end
+    
+    return result
+end
+
+-- 🔄 Auto sync loop
+local lastSyncTime = 0
+spawn(function()
+    wait(10)
+    
+    while wait(API_CONFIG.SYNC_INTERVAL) do
+        if API_CONFIG.ENABLED and #Players:GetPlayers() > 0 then
+            local currentTime = tick()
+            if currentTime - lastSyncTime >= API_CONFIG.SYNC_INTERVAL then
+                syncDataToAPI()
+                lastSyncTime = currentTime
+            end
+        end
+    end
+end)
+
+-- 🎮 Commands untuk admin
+local function isAdmin(userId)
+    for _, id in pairs(API_CONFIG.ADMIN_IDS) do
+        if userId == id then
+            return true
+        end
+    end
+    return false
+end
+
+local function showNotification(player, text, duration)
+    local hint = Instance.new("Hint")
+    hint.Text = text
+    hint.Parent = workspace
+    task.delay(duration or 3, function()
+        hint:Destroy()
+    end)
+end
+
 Players.PlayerAdded:Connect(function(player)
     player.Chatted:Connect(function(message)
-        if message:lower() == ":exportdata" then
-            -- Cek apakah admin (ganti dengan User ID admin Anda)
-            local adminIds = {9158231035, 9040738519, 8732264748}
-            local isAdmin = false
-            for _, id in pairs(adminIds) do
-                if player.UserId == id then
-                    isAdmin = true
-                    break
-                end
-            end
+        local msg = message:lower()
+        
+        if not isAdmin(player.UserId) then
+            return
+        end
+        
+        if msg == ":exportdata" then
+            local data = exportPlayerData()
+            print("========== EXPORT DATA START ==========")
+            print(HttpService:JSONEncode(data))
+            print("========== EXPORT DATA END ==========")
             
-            if isAdmin then
-                local data = exportPlayerData()
-                print("========== EXPORT DATA START ==========")
-                print(HttpService:JSONEncode(data))
-                print("========== EXPORT DATA END ==========")
-                
-                local hint = Instance.new("Hint")
-                hint.Text = "✅ Data exported! Buka Console (F9) dan copy data"
-                hint.Parent = workspace
-                wait(5)
-                hint:Destroy()
+            showNotification(player, "✅ Data exported! Check Console (F9)")
+        end
+        
+        if msg == ":syncnow" then
+            showNotification(player, "🔄 Syncing data...", 2)
+            local success = syncDataToAPI()
+            if success then
+                showNotification(player, "✅ Sync successful!")
+            else
+                showNotification(player, "❌ Sync failed!")
+            end
+        end
+        
+        if msg == ":apistatus" then
+            local success = pcall(function()
+                local response = HttpService:GetAsync(API_CONFIG.API_URL, true)
+                print("📡 API Status: Connected")
+                print("🌐 URL: " .. API_CONFIG.API_URL)
+                print("👥 Total Players: " .. #Players:GetPlayers())
+            end)
+            
+            if success then
+                showNotification(player, "✅ API Connected!")
+            else
+                showNotification(player, "❌ API Offline!")
             end
         end
     end)
 end)
 
+-- ✅ Startup
+print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
 print("✅ API Connector loaded!")
-print("📝 Command: :exportdata - Export player data ke console")`;
+print("🌐 API URL: " .. API_CONFIG.API_URL)
+print("📡 Auto-sync: " .. tostring(API_CONFIG.ENABLED))
+print("⏱️  Sync interval: " .. API_CONFIG.SYNC_INTERVAL .. " seconds")
+print("")
+print("📝 Admin Commands:")
+print("  :exportdata  - Export player data to console")
+print("  :syncnow     - Manually trigger sync")
+print("  :apistatus   - Check API connection")
+print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+
+task.delay(5, function()
+    print("🔍 Testing API connection...")
+    local success = pcall(function()
+        HttpService:GetAsync(API_CONFIG.API_URL, true)
+        print("✅ API connection successful!")
+    end)
+    
+    if not success then
+        warn("⚠️ Cannot connect to API!")
+    end
+end)`;
 
             navigator.clipboard.writeText(script).then(() => {
                 showAlert('dashboardAlert', '✅ Script berhasil di-copy! Paste ke Roblox Studio', 'success');
             });
         }
 
-        loadData();
-        updateStats();
-        
-        if (gameData.players.length === 0) {
-            showAlert('dashboardAlert', '📖 Mulai dengan import data dari Roblox di tab Setup!', 'info');
-        }
+        // Initialize on load
+        checkLoginStatus();
     </script>
 </body>
 </html>
+            
+            <form class="login-form" onsubmit="handleLogin(event)">
+                <div id="loginAlert"></div>
+                
+                <div class="form-group">
+                    <label>👤 Username</label>
+                    <input type="text" id="loginUsername" placeholder="Masukkan username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>🔒 Password</label>
+                    <input type="password" id="loginPassword" placeholder="Masukkan password" required>
+                </div>
+                
+                <div class="remember-me">
+                    <input type="checkbox" id="rememberMe">
+                    <label for="rememberMe">Remember Me</label>
+                </div>
+                
+                <button type="submit" class="login-btn">🚀 Login</button>
+                
+                <div class="admin-credentials">
+                    <h4>🔑 Default Admin Credentials:</h4>
+                    <p><strong>Username:</strong> admin</p>
+                    <p><strong>Password:</strong> admin123</p>
+                    <p style="margin-top: 10px; color: #ff9800;"><em>⚠️ Ganti password setelah login pertama!</em></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div class="container" id="mainDashboard">
+        <div class="header">
+            <div class="header-content">
+                <div>
+                    <h1>🎮 Admin Control Panel</h1>
+                    <p>Kelola Database Roblox Game Anda</p>
+                </div>
+                <div class="user-info">
+                    <span class="user-badge" id="userBadge">👤 Admin</span>
+                    <button class="logout-btn" onclick="handleLogout()">🚪 Logout</button>
+                </div>
+            </div>
+            <div style="margin-top: 15px;">
+                <div class="connection-status status-disconnected" id="connectionStatus">
+                    <span>⚠️</span>
+                    <span>Mode Offline</span>
+                </div>
+            </div>
+            <div class="sync-controls">
+                <button class="btn btn-primary" onclick="syncFromRoblox()">🔄 Sync dari Roblox</button>
+                <button class="btn btn-success" onclick="exportData()">📥 Export Data</button>
+                <button class="btn btn-warning" onclick="importData()">📤 Import Data</button>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('setup')">📖 Setup</button>
+            <button class="tab-btn" onclick="showTab('dashboard')">📊 Dashboard</button>
+            <button class="tab-btn" onclick="showTab('servers')">🖥️ Servers</button>
+            <button class="tab-btn" onclick="showTab('players')">👥 Players</button>
+            <button class="tab-btn" onclick="showTab('admins')">⚡ Admins</button>
+            <button class="tab-btn" onclick="showTab('vip')">💎 VIP</button>
+            <button class="tab-btn" onclick="showTab('summit')">⛰️ Summit</button>
+            <button class="tab-btn" onclick="showTab('donation')">💰 Donasi</button>
+            <button class="tab-btn" onclick="showTab('database')">🗄️ Database</button>
+        </div>
+
+        <div id="setup" class="tab-content active">
+            <h2 style="margin-bottom: 20px;">📖 Cara Setup & Connect ke Roblox</h2>
+            
+            <div class="instruction-box">
+                <h3>🚀 Step 1: Copy Script ke Roblox Studio</h3>
+                <ol>
+                    <li>Buka <strong>Roblox Studio</strong></li>
+                    <li>Buka game Anda</li>
+                    <li>Masuk ke <strong>ServerScriptService</strong></li>
+                    <li>Buat <strong>Script</strong> baru, beri nama: <code>APIConnector</code></li>
+                    <li>Copy code di bawah ini ke script tersebut:</li>
+                </ol>
+            </div>
+
+            <button class="btn btn-primary" onclick="copyAPIScript()">📋 Copy API Connector Script</button>
+
+            <div class="instruction-box" style="margin-top: 30px;">
+                <h3>🔗 Step 2: Import Data dari Roblox</h3>
+                <ol>
+                    <li>Jalankan game Anda di Roblox Studio</li>
+                    <li>Join game sebagai admin</li>
+                    <li>Ketik command di chat: <code>:exportdata</code></li>
+                    <li>Tekan <strong>F9</strong> untuk buka Console</li>
+                    <li>Copy semua data JSON yang muncul</li>
+                    <li>Paste di textarea di bawah ini:</li>
+                </ol>
+            </div>
+
+            <div class="form-group">
+                <label>📥 Import Data dari Roblox:</label>
+                <textarea id="importDataArea" placeholder='Paste data JSON dari Roblox Console di sini...
+
+Contoh format:
+[
+  {
+    "userId": 9158231035,
+    "username": "Player1",
+    "totalSubmit": 15,
+    "totalDonation": 5000,
+    "lastCheckpoint": "Checkpoint 5",
+    "isVIP": false
+  }
+]'></textarea>
+            </div>
+            <button class="btn btn-success" onclick="processImportData()">✅ Import Data</button>
+
+            <div class="instruction-box" style="margin-top: 30px;">
+                <h3>💡 Tips:</h3>
+                <ul>
+                    <li>Website ini menggunakan memory storage untuk simpan data</li>
+                    <li>Data akan realtime sync dengan API server</li>
+                    <li>Gunakan command <code>:exportdata</code> untuk export data dari game</li>
+                    <li>Gunakan command <code>:syncnow</code> untuk manual sync</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="dashboard" class="tab-content">
+            <h2 style="margin-bottom: 20px;">📊 Statistik Game</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3 id="totalPlayers">0</h3>
+                    <p>Total Players</p>
+                </div>
+                <div class="stat-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    <h3 id="totalVips">0</h3>
+                    <p>Total VIP Members</p>
+                </div>
+                <div class="stat-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    <h3 id="totalAdmins">0</h3>
+                    <p>Total Admins</p>
+                </div>
+                <div class="stat-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                    <h3 id="totalSummits">0</h3>
+                    <p>Total Summit Submissions</p>
+                </div>
+                <div class="stat-card" style="background: linear-gradient(135deg, #ffd89b 0%, #ff9a56 100%);">
+                    <h3 id="totalDonations"><span class="robux-icon" style="width: 32px; height: 32px;"></span> 0</h3>
+                    <p>Total Donasi (Robux)</p>
+                </div>
+            </div>
+
+            <div id="dashboardAlert"></div>
+
+            <h3 style="margin-top: 30px; margin-bottom: 15px;">📈 Leaderboard - Top Summit</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Username</th>
+                        <th>Summit Count</th>
+                        <th>Total Donasi (Robux)</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboardBody">
+                </tbody>
+            </table>
+        </div>
+
+        <div id="servers" class="tab-content">
+            <h2 style="margin-bottom: 20px;">🖥️ Server Monitoring</h2>
+            <div id="serversAlert"></div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3 id="totalServers">0</h3>
+                    <p>Total Servers Online</p>
+                </div>
+                <div class="stat-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                    <h3 id="totalOnlinePlayers">0</h3>
+                    <p>Total Players Online</p>
+                </div>
+            </div>
+
+            <h3 style="margin-bottom: 15px;">🌐 Server List</h3>
+            <div id="serversList">
+                <p style="color: #666; padding: 20px; text-align: center;">Tidak ada server aktif atau belum terkoneksi ke API</p>
+            </div>
+        </div>
+
+        <div id="players" class="tab-content">
+            <h2 style="margin-bottom: 20px;">👥 Kelola Players</h2>
+            <div id="playersAlert"></div>
+            
+            <div class="search-box">
+                <input type="text" id="searchPlayer" placeholder="🔍 Cari player by nama atau User ID..." onkeyup="searchPlayers()">
+            </div>
+
+            <table class="data-table" id="playersTable">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Username</th>
+                        <th>Total Summit</th>
+                        <th>Total Donasi (Robux)</th>
+                        <th>Last Checkpoint</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="playersTableBody">
+                </tbody>
+            </table>
+        </div>
+
+        <div id="admins" class="tab-content">
+            <h2 style="margin-bottom: 20px;">⚡ Kelola Admins</h2>
+            <div id="adminsAlert"></div>
+            
+            <div class="form-group">
+                <label>Tambah Admin Baru</label>
+                <input type="number" id="newAdminId" placeholder="User ID (contoh: 123456789)">
+            </div>
+            <div class="form-group">
+                <label>Role Admin</label>
+                <select id="newAdminRole">
+                    <option value="Developer">👑 Developer</option>
+                    <option value="Streamer">📺 Streamer</option>
+                    <option value="Admin">⚡ Admin</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" onclick="addAdmin()">➕ Tambah Admin</button>
+            <button class="btn btn-success" onclick="exportAdminConfig()">📋 Copy Admin Config</button>
+
+            <table class="data-table" style="margin-top: 30px;">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Role</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="adminsTableBody">
+                </tbody>
+            </table>
+        </div>
+
+        <div id="vip" class="tab-content">
+            <h2 style="margin-bottom: 20px;">💎 Kelola VIP</h2>
+            <div id="vipAlert"></div>
+            
+            <div class="search-box">
+                <input type="text" id="searchVip" placeholder="🔍 Cari player untuk set VIP..." onkeyup="searchVipPlayers()">
+            </div>
+
+            <table class="data-table" id="vipTable">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Username</th>
+                        <th>Status VIP</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="vipTableBody">
+                </tbody>
+            </table>
+        </div>
+
+        <div id="summit" class="tab-content">
+            <h2 style="margin-bottom: 20px;">⛰️ Edit Summit</h2>
+            <div id="summitAlert"></div>
+            
+            <div class="search-box">
+                <input type="text" id="searchSummit" placeholder="🔍 Cari player untuk edit summit..." onkeyup="searchSummitPlayers()">
+            </div>
+
+            <table class="data-table" id="summitTable">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Username</th>
+                        <th>Total Summit</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="summitTableBody">
+                </tbody>
+            </table>
+        </div>
+
+        <div id="donation" class="tab-content">
+            <h2 style="margin-bottom: 20px;">💰 Kelola Donasi (Robux)</h2>
+            <div id="donationAlert"></div>
+            
+            <div class="instruction-box">
+                <h3>💎 Info Donasi Robux</h3>
+                <p>Kelola donasi pemain yang dilakukan via Robux in-game. Donasi bisa berupa:</p>
+                <ul>
+                    <li>💰 Game Pass purchases</li>
+                    <li>🎁 Developer Product purchases</li>
+                    <li>⭐ VIP donations</li>
+                    <li>🛍️ In-game shop purchases</li>
+                </ul>
+                <p style="color: #ff9800; margin-top: 10px;"><strong>⚠️ Pastikan nilai Robux yang diinput sudah sesuai dengan transaksi!</strong></p>
+            </div>
+            
+            <div class="search-box">
+                <input type="text" id="searchDonation" placeholder="🔍 Cari player untuk edit donasi..." onkeyup="searchDonationPlayers()">
+            </div>
+
+            <table class="data-table" id="donationTable">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Username</th>
+                        <th>Total Donasi (Robux)</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="donationTableBody">
+                </tbody>
+            </table>
+        </div>
+
+        <div id="database" class="tab-content">
+            <h2 style="margin-bottom: 20px;">🗄️ Database Editor</h2>
+            <div id="databaseAlert"></div>
+            
+            <div class="search-box">
+                <input type="text" id="searchDatabase" placeholder="🔍 Cari player untuk edit..." onkeyup="searchDatabase()">
+            </div>
+
+            <table class="data-table" id="databaseTable">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Username</th>
+                        <th>Summit</th>
+                        <th>Donasi (Robux)</th>
+                        <th>VIP</th>
+                        <th>Checkpoint</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="databaseTableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
